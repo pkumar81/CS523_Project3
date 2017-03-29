@@ -1,5 +1,10 @@
-function fitness =  get_fitness(genome_value)
+function fitness =  get_fitness(genome_value,index)
 % This is a temp function for testing
-    fitness = rand(1,1);
+    if index=1
+    fitness = bimass_no_image(genome_value);
+    end
+    if index=2
+    fitness = longevity_no_image(genome_value);
+    end
 end
 
