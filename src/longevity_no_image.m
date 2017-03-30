@@ -47,7 +47,7 @@ function longevity=tree1(p)
     cells=cells-(burncells.*2);    
     end
     
-    if numel(find(cells==EMPTY))==62500
+    if numel(find((cells==EMPTY)+(cells==BURNING)))==62500
        longevity=i;
     end
     
@@ -121,7 +121,7 @@ function longevity=tree2(p1,p2)
     cells=cells-(burncells.*3);
     end
     
-    if numel(find(cells==EMPTY))==62500
+    if numel(find((cells==EMPTY)+(cells==BURNING)))==62500
        longevity=i;
     end
     
@@ -228,7 +228,7 @@ function longevity=tree_firefighter(p1,p2,Num)
     cells=cells-((burncells1-(cells==EXTINGUISHED1))*3)-((burncells2-(cells==EXTINGUISHED2))*4);
     end 
      
-    if numel(find(cells==EMPTY))==62500
+    if numel(find((cells==EMPTY)+(cells==BURNING1)+(cells==BURNING2)))==62500
        longevity=i;
     end
     
