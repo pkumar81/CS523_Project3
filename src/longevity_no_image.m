@@ -35,7 +35,15 @@ function longevity=tree1(p)
     
     % some trees get hit by lightning
     lightning = (cells==TREE).*(rand(250,250)<f);
-    cells=cells+lightning;   
+    cells=cells+lightning;  
+    
+      if numel(find(cells==TREE))==0
+         longevity=i;
+      end    
+      if longevity>0
+         break
+      end
+      
     end
 
     % empties may come to life
@@ -46,15 +54,7 @@ function longevity=tree1(p)
     if i>2
     cells=cells-(burncells.*2);    
     end
-    
-    if numel(find((cells==EMPTY)+(cells==BURNING)))==62500
-       longevity=i;
-    end
-    
-    if longevity>0
-    break
-    end
-    
+        
  end
     
 
@@ -94,6 +94,13 @@ function longevity=tree2(p1,p2)
     tolight1= (cells==TREE1).*tolight;
     tolight2= (cells==TREE2).*tolight;
     cells=cells+(tolight1*2)+tolight2;  
+   
+      if numel(find((cells==TREE1)+(cells==TREE2)))==0
+         longevity=i;
+      end    
+      if longevity>0
+         break
+      end
     end
 
     % empties may come to life
@@ -120,15 +127,7 @@ function longevity=tree2(p1,p2)
     %turn burning cells from previous step to empty cells
     cells=cells-(burncells.*3);
     end
-    
-    if numel(find((cells==EMPTY)+(cells==BURNING)))==62500
-       longevity=i;
-    end
-    
-    if longevity>0
-    break
-    end
-    
+       
  end
 
 end
@@ -199,7 +198,14 @@ function longevity=tree_firefighter(p1,p2,Num)
      
     % some trees get hit by lightning
     tolight = ((cells==TREE1)+(cells==TREE2)).*(rand(250,250)<f);
-    cells=cells+(tolight*2);      
+    cells=cells+(tolight*2);  
+    
+      if numel(find((cells==TREE1)+(cells==TREE2)))==0
+         longevity=i;
+      end    
+      if longevity>0
+         break
+      end
 
     end
 
@@ -227,15 +233,7 @@ function longevity=tree_firefighter(p1,p2,Num)
     %turn burning cells from previous step to empty cells
     cells=cells-((burncells1-(cells==EXTINGUISHED1))*3)-((burncells2-(cells==EXTINGUISHED2))*4);
     end 
-     
-    if numel(find((cells==EMPTY)+(cells==BURNING1)+(cells==BURNING2)))==62500
-       longevity=i;
-    end
-    
-    if longevity>0
-    break
-    end
-    
+         
  end
 
 end
