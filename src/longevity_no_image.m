@@ -1,23 +1,24 @@
 %p1 and p2 are the gowth rate, Num is the number of fire fighters, set p2 or and Num as zero if not exist.
 function  longevity=longevity_no_image(p1,p2,Num)
+       max_steps = 50;
 	   if (p2==0)&&(Num==0)
-	      longevity=tree1(p1);
+	      longevity=tree1(p1, max_steps);
        elseif (p2>0)&&(Num==0)
-	      longevity=tree2(p1,p2);
+	      longevity=tree2(p1, p2, max_steps);
        elseif (p2>0)&&(Num>0)
-	      longevity=tree_firefighter(p1,p2,Num);
+	      longevity=tree_firefighter(p1, p2, Num, max_steps);
 	   end
 end
 
 %function which take 1 tree species, return the everage biomass on 5000 steps
-function longevity=tree1(p)
- f = 0.001; % lightning
+function longevity=tree1(p, max_steps)
+ f = 0.3; % lightning
  EMPTY   = 1;
  TREE    = 2;
  BURNING = 3;
  cells = ones(250,250); %initiate the lattice
  longevity=0;
- for i=1:5000  
+ for i=1:max_steps
     if i>1  %implement fire from step 2
     %increase the boundary wrap around like 1D CAs
     tilecells = cells([end 1:end 1], [end 1:end 1]);
@@ -61,8 +62,9 @@ function longevity=tree1(p)
 end
 
 %function takes two species of trees
-function longevity=tree2(p1,p2)
- f = 0.001; % lightning
+function longevity=tree2(p1,p2, max_steps)
+disp('Hello');
+ f = 1; % lightning
  EMPTY   = 1;
  TREE1   = 2;
  TREE2   = 3;
@@ -70,7 +72,7 @@ function longevity=tree2(p1,p2)
  cells = ones(250,250); %initiate the lattice
  longevity=0;
 
- for i=1:5000
+ for i=1:max_steps
     
     if i>1
     %increase the boundary wrap around like 1D CAs
@@ -133,7 +135,7 @@ function longevity=tree2(p1,p2)
 end
 
 %function takes firefighters
-function longevity=tree_firefighter(p1,p2,Num)
+function longevity=tree_firefighter(p1,p2,Num,max_steps)
  f = 0.001; % lightning
  N=Num;
  EMPTY   = 1;
@@ -146,7 +148,7 @@ function longevity=tree_firefighter(p1,p2,Num)
  cells = ones(250,250); %initiate the lattice
  longevity=0;
 
- for i=1:5000    
+ for i=1:max_steps 
      
     if i>1
     %increase the boundary wrap around like 1D CAs

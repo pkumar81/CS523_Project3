@@ -12,7 +12,7 @@ function forrest_fire()
     % initialize genomes and their fitness for population1
     for i = 1:population_size
         population1(i).fitness = 0;
-        population2(i).genome = rand();
+        population1(i).genome = rand();
     end
 
     % initialize population2
@@ -26,25 +26,28 @@ function forrest_fire()
         population2(i).fitness = 0;
         population2(i).genome = genome_space(i);
     end
-    
-% 3. call biomass function (to grow the forrest) using the initial
+   
+%{
+ 3. call biomass function (to grow the forrest) using the initial
 % probabilities
-    num_of_firefighters = randi(5000);
-    biomass_or_longevity = randi(2);
+    %num_of_firefighters = randi(5000);
+    num_of_firefighters = 0;
+    biomass_or_longevity = randi(1);
     if (biomass_or_longevity == 1)
         for n = 1:population_size
-            bmass = biomass(population1(n), population2(n), num_of_firefighters);
+            bmass = biomass_no_image(population1(n).genome, population2(n).genome, num_of_firefighters);
         end
     else
         for n = 1:population_size
-            lngvity = longevity(population1(n), population2(n), num_of_firefighters);
+            lngvity = longevity_no_image(population1(n).genome, population2(n).genome, num_of_firefighters);
         end
     end
- 
+ %}
+    
 % 4. run GA for both population1 and population2 for n number of
 % generations to see the impact on forrest growth
     num_of_generations = 10;
-    mutation_rate = 0.05
+    mutation_rate = 0.05;
     run_GA_p1p2(population1, population2, num_of_generations, population_size, mutation_rate, genome_min, genome_max);
 end
 

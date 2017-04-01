@@ -5,7 +5,7 @@ function p1 = run_GA_p1p2(population1, population2, num_of_generations, populati
     % with bad fitness are replaced by genomes with good fitness
     
     % mutate the populations
-    for j = 1:num_generations
+    for j = 1:num_of_generations
         % mutate the genomes of population1 . Add/subtract a randomly
         % selected number between 0 and 1 from uniform continuous distribution.
         for k = 1:population_size
@@ -33,18 +33,32 @@ function p1 = run_GA_p1p2(population1, population2, num_of_generations, populati
                 end
             end
         end
-        
+        %disp(population2(1).genome);
         % Recompute the fitness
-        biomass_or_longevity = randi(2);
-        population1.fitness = get_fitness(population1.genome, population2.genome, biomass_or_longevity);
-        population2.fitness = get_fitness(population1.genome, population2.genome, biomass_or_longevity);
+        p1 = [];
+        p2 = [];
+        for m = 1:population_size
+            p1(m) = population1(m).genome;
+            p2(m) = population2(m).genome;
+        end
+        biomass_or_longevity = 1; %randi(1);
+        f1 = get_fitness(p1, p2, population_size, biomass_or_longevity);
+        %f2 = get_fitness(p1, p2, population_size, biomass_or_longevity);
+        f2 = f1;
+        disp(f1);
+        disp(f2);
+        
+        for m = 1:population_size
+            population1(m).fitness = f1(m);
+            population2(m).fitness = f2(m);
+        end
         
         % sort the population by fitness in increasing order
         [~, sorted_idx1] = sort([population1.fitness]);
         population1 = population1(sorted_idx1);
         
         [~, sorted_idx2] = sort([population2.fitness]);
-        population2 = population1(sorted_idx2);
+        population2 = population2(sorted_idx2);
 
         % replace the half of the population with low fitness with the
         % population with high fitness
