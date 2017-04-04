@@ -236,7 +236,7 @@ function everagebiomass=tree_firefighter(p1, p2, Num, max_steps)
     end 
   
     %stor the biomass every step
-    biomass=[biomass,numel(find((cells==TREE1)+(cells==TREE2)+(cells==EXTINGUISHED1)+(EXTINGUISHED2)))/62500];
+    biomass=[biomass,numel(find((cells==TREE1)+(cells==TREE2)+(cells==EXTINGUISHED1)+(cells==EXTINGUISHED2)))/62500];
     
  end
 
