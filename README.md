@@ -6,5 +6,5 @@ CS523 Project 3: Modelling
 
 
 2 Figures
-Download the folder newsrc.
-run script file figuregenerate.m to generate the figures.
+   1) Download the folder newsrc.
+   2) run script file figuregenerate.m to generate the figures.
