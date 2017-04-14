@@ -49,9 +49,11 @@ set(findall(gcf,'type','text'),'FontSize',14,'fontWeight','bold');
 hold off;
 
 %%
-
+figure;
 tree_firefighter2(0.965,0.972,0,200);
+figure;
 tree_firefighter2(0.965,0.972,50,200);
+figure;
 tree_firefighter2(0.965,0.972,100,200);
 
 
