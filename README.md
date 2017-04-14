@@ -18,9 +18,8 @@ forest_fire.m is the main driver program that calls the downline programs to evo
 
 Then, open this program (forest_fire.m) in matlab and execute it from command line or by clicking the run button. It takes more than 5 hours to finish, but at the end of the execution, it will generates several plots. This program calls no_image version of biomass and longevity so that it can finish quicker. But, if you want to see the visuals for growth and burning of trees, do the following changes in code get_fitness.m and then run forest_fire.m. This exeuction might take 7-8 hours.
    1) change function 'biomass_no_image' to 'biomass'
-   2) chnage function 'longevity_no_image' to 'longevity'
+   2) change function 'longevity_no_image' to 'longevity'
  
-
 
 2 To generate additional plots
    1) Download the folder newsrc.
