@@ -14,11 +14,13 @@ function [pop1, pop2, pop_fitness] = run_GA_p1p2(population1, population2, num_o
             modified_genome = population1(k).genome + random('unif',0,mutation_rate,1,1);
             if (modified_genome <= genome_max && modified_genome >= genome_min)
                 population1(k).genome = modified_genome;
+            %{
             else
                 modified_genome = population1(k).genome - random('unif',0,mutation_rate,1,1);
                 if (modified_genome <= genome_max && modified_genome >= genome_min)
                     population1(k).genome = modified_genome;
                 end
+             %}
             end
         end
         % if there is just one species, do not mutate population2
@@ -29,11 +31,13 @@ function [pop1, pop2, pop_fitness] = run_GA_p1p2(population1, population2, num_o
                 modified_genome = population2(k).genome + random('norm',0,mutation_rate,1,1);
                 if (modified_genome <= genome_max && modified_genome >= genome_min)
                     population2(k).genome = modified_genome;
+              %{
                 else
                     modified_genome = population2(k).genome - random('norm',0,mutation_rate,1,1);
                     if (modified_genome <= genome_max && modified_genome >= genome_min)
                         population2(k).genome = modified_genome;
                     end
+                 %}
                 end
             end
         end
