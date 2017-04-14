@@ -1,7 +1,9 @@
 # CS523_Project3
 CS523 Project 3: Modelling
 
-1 How to run forest fire model
+
+1 To generate additional plots
+
 forest_fire.m is the main driver program that calls the downline programs to evolve GAs, to compute fitness values, and to draw some of the plots. The deafult values of the following parameters have been set in this program. Edit it, if you want to change any of these parameters.
 
     population_size = 10;
