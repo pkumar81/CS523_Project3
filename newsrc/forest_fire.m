@@ -48,8 +48,8 @@ function forest_fire()
     [pop1, pop2, pop_biomass] = run_GA_p1p2(population1, population2, num_of_generations, population_size, mutation_rate, biomass_or_longevity, max_steps, number_of_firefighters, num_of_species, genome_min, genome_max);
 
 % get longevity fitness.
-    %biomass_or_longevity = 2;
-    %[pop3, pop4, pop_longevity] = run_GA_p1p2(population1, population2, num_of_generations, population_size, mutation_rate, biomass_or_longevity, max_steps, number_of_firefighters, num_of_species, genome_min, genome_max);
+    biomass_or_longevity = 2;
+    [pop3, pop4, pop_longevity] = run_GA_p1p2(population1, population2, num_of_generations, population_size, mutation_rate, biomass_or_longevity, max_steps, number_of_firefighters, num_of_species, genome_min, genome_max);
     
 % 3. use the returned data for drawing the plots. The codes in section 3,
 % use average of p1, p2, biomass, and longevity to draw the plot.
@@ -64,10 +64,10 @@ function forest_fire()
         x_vals(k) = k;
         x_pop1_vals(k) = mean(pop1(k,:));
         x_pop2_vals(k) = mean(pop2(k,:));
-        %x_pop3_vals(k) = mean(pop3(k,:));
-        %x_pop4_vals(k) = mean(pop4(k,:));
+        x_pop3_vals(k) = mean(pop3(k,:));
+        x_pop4_vals(k) = mean(pop4(k,:));
         y_biomass_vals(k) = mean(pop_biomass(k,:));
-        %y_longevity_vals(k) = mean(pop_longevity(k,:));
+        y_longevity_vals(k) = mean(pop_longevity(k,:));
     end
     
 %   3a. growth rates (probabilities)vs generations
