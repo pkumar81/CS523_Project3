@@ -1,4 +1,4 @@
-%%
+% script to generate figure
 load('biomass_p_0.001.mat');
 figure;
 hold on
@@ -17,8 +17,7 @@ set(gca,'FontSize',14,'fontWeight','bold');
 set(findall(gcf,'type','text'),'FontSize',14,'fontWeight','bold');
 hold off;
 
-%%
-script to generate figure
+
 load('firefighter_biomass.mat');
 figure;
 hold on
@@ -31,7 +30,7 @@ set(findall(gcf,'type','text'),'FontSize',14,'fontWeight','bold');
 hold off;
 
 
-%% 
+
 load('biomass_100_firefighter.mat');
 load('biomass_no_firefighter.mat');
 load('biomass_50_firefighter.mat');
@@ -48,7 +47,7 @@ set(gca,'FontSize',14,'fontWeight','bold');
 set(findall(gcf,'type','text'),'FontSize',14,'fontWeight','bold');
 hold off;
 
-%%
+
 figure;
 tree_firefighter2(0.965,0.972,0,200);
 figure;
